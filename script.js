@@ -10,16 +10,12 @@ document.getElementById('submitButton').addEventListener('click', function () {
     factsContainer.innerText = 'Fetching fact...';
 
     // Use a CORS proxy for NumbersAPI
-    fetch(`https://cors-anywhere.herokuapp.com/http://numbersapi.com/${number}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch from NumbersAPI');
-            }
-            return response.text();
-        })
-        .then(fact => {
-            factsContainer.innerText = fact;
-        })
+   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(http://numbersapi.com/${number})}`)
+    .then(response => response.json())
+    .then(data => {
+        factsContainer.innerText = data.contents;
+    })
+
         .catch(error => {
             console.error('Error fetching from NumbersAPI:', error);
             factsContainer.innerText = 'Failed to fetch the fact. Please try again later.';
