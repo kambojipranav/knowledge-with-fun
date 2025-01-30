@@ -1,12 +1,32 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient( #8098c4, #336ed5, #5003a2, #0e316f);
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Initial gradient */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   color: #fff;
+  animation: changeBackground 12s infinite;
+}
+
+@keyframes changeBackground {
+  0% {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Warm orange to peach */
+  }
+  25% {
+      background: linear-gradient(135deg, #cc2b5e, #753a88); /* Deep pink to purple */
+  }
+  50% {
+    background: linear-gradient(135deg, #ffd700, #ff8c00); /* Gold to orange */
+     
+  }
+  75% {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  }
+  100% {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Back to initial gradient */
+  }
 }
 
 .container {
