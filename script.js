@@ -1,19 +1,22 @@
+
+
 // Number Facts Functionality
 document.getElementById('submitButton').addEventListener('click', function() {
-  const number = document.getElementById('numberInput').value;
-  if (number) {
-      fetch(`http://numbersapi.com/${number}?json`)
-          .then(response => response.json())
-          .then(data => {
-              document.getElementById('factsContainer').innerText = data.text;
-          })
-          .catch(error => {
-              console.error('Error fetching the number fact:', error);
-          });
-  } else {
-      alert('Please enter a number.');
-  }
+    const number = document.getElementById('numberInput').value;
+    if (number) {
+        fetch(`http://numbersapi.com/${number}?json`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('factsContainer').innerText = data.text;
+            })
+            .catch(error => {
+                console.error('Error fetching the number fact:', error);
+            });
+    } else {
+        alert('Please enter a number.');
+    }
 });
+
 
 // Joke Functionality
 document.getElementById('jokeButton').addEventListener('click', function() {
