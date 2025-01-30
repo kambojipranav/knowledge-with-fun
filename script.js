@@ -9,12 +9,16 @@ document.getElementById('submitButton').addEventListener('click', function () {
 
     factsContainer.innerText = 'Fetching fact...';
 
-   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(http://numbersapi.com/${number})}`)
-    .then(response => response.json())
-    .then(data => {
-        factsContainer.innerText = data.contents;
-    })
+    // Use a CORS proxy for NumbersAPI
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent("http://numbersapi.com/" + number)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch from NumbersAPI');
+            }
+            return response.json();
+        })
         .then(data => {
+            // Parse the text response inside `data.contents`
             factsContainer.innerText = data.contents ? data.contents : 'No fact found for this number.';
         })
         .catch(error => {
